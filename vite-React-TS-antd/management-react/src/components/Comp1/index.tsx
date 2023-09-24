@@ -3,7 +3,7 @@
 //模块化引入
 import Styles from "./comp1.module.scss";
 
-function Comp() {
+const Comp = () => {
     return (
         <div className={Styles.box}>
             <p>这是Comp1里面的内容</p>
