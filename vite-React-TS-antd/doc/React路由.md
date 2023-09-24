@@ -125,4 +125,76 @@ export default baseRouter;
 
 ```
 
-## React18 路由
+## React18 路由 (路由表的形式)
+
+在router目录下创建.tsx文件
+
+```typescript
+
+//路由表形式
+import Home from '../views/Home';
+import About from '../views/About';
+import { Navigate } from 'react-router-dom';
+
+const routes = [
+    {
+        path: "/",
+        element: <Navigate to='/home' />
+    },
+    {
+        path: "/home",
+        element: <Home />
+    },
+    {
+        path: "/",
+        element: <About />
+    }
+]
+
+export default routes;
+
+```
+
+在main.tsx中
+
+```typescript
+
+import App from './App.tsx';
+import { BrowserRouter } from 'react-router-dom';
+// import Router from './router/index copy';
+
+
+ReactDOM.createRoot(document.getElementById('root')!).render(
+  <React.StrictMode>
+    {/* <Router /> */}
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </React.StrictMode>,
+)
+
+```
+
+在App.tsx中
+
+```typescript
+
+import { useRoutes, Link } from 'react-router-dom';
+import router from './router';
+
+function App() {
+
+  const outlet = useRoutes(router);
+
+  return (
+    <div className='App'>
+      <Link to="/home">Home</Link> |
+      <Link to="/about">About</Link>
+      { outlet }
+    </div>
+  )
+}
+
+export default App;
+
+```
