@@ -4,6 +4,8 @@
     "useDefineForClassFields": true,
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "module": "ESNext",
+    // "suppressImplicitAnyIndexErrors": true, // ts 5.0 已经弃用 
+    "noImplicitAny": false,
     "skipLibCheck": true,
 
     /* Bundler mode */

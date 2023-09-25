@@ -10,6 +10,7 @@ import { Navigate } from 'react-router-dom';
 // const User = lazy(() => import('../views/User'));
 const Page1 = lazy(() => import('../views/page1'));
 const Page2 = lazy(() => import('../views/page2'));
+const Page301 = lazy(() => import('../views/page301'));
 
 //懒加载模式的组件写法，外面需要套一层 Loading 的提示加载组件
 
@@ -38,8 +39,17 @@ const routes = [
             {
                 path: "/page2",
                 element: withLoadingComponent(<Page2 />)
+            },
+            {
+                path: "/page3/page301",
+                element: withLoadingComponent(<Page301 />)
             }
         ]
+    },
+    {
+        // 将其他路由重定向到page1
+        path: "*",
+        element: <Navigate to="/page1" />
     }
     // {
     //     path: "/home",
