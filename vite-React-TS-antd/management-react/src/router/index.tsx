@@ -4,6 +4,7 @@ import React,{ lazy } from 'react';
 import Home from '../views/Home';
 // import About from '../views/About';
 // import User from '../views/User';
+import Login from '../views/Login';
 import { Navigate } from 'react-router-dom';
 
 // const About = lazy(() => import('../views/About'));
@@ -45,6 +46,10 @@ const routes = [
                 element: withLoadingComponent(<Page301 />)
             }
         ]
+    },
+    {
+        path: "/login",
+        element: <Login />
     },
     {
         // 将其他路由重定向到page1
